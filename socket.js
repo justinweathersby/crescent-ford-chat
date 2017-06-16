@@ -19,12 +19,12 @@ const leave_room_event = 'leave:room';
 
 const onConnection = function (socket) {
     socket.on(send_message_event, function (message) {
-        console.log("Message room: " + message.user + " " + message.recipient_id + " " + message.conversation_id);
+        console.log("Message room: "+message.room + " User: " + message.user + " Recipient: " + message.recipient_id +"Conversat: " + message.conversation_id);
         console.log(JSON.stringify(message));
         var sending_message = {}
         sending_message.room = message.room;
         sending_message.user = message.user;
-        sending_message.text = message.text;
+        sending_message.body = message.text;
         sending_message.recipient_id = message.recipient_id;
         sending_message.conversation_id = message.conversation_id;
 
